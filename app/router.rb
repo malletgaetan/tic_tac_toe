@@ -1,5 +1,3 @@
-require_relative 'game_controller.rb'
-
 class Router
   def initialize(controller)
     @controller = controller
@@ -9,16 +7,11 @@ class Router
   def run
     count = [1,2].sample
     puts count.odd? ? "player start" : "bot start"
-    while @running
-      @controller.player_turn if count.odd?
-      @controller.bot_turn if count.even?
-      unless @controller.game_state
-        puts "-" * 30
-        puts "#{@controller.winner} won this game!"
-        puts "-" * 30
-        @running = false
-      end
+    until @controller.winner
+      @controller.player_turn('O', 'X') if count.odd?
+      @controller.bot_turn('O', 'X') if count.even?
       count += 1
     end
+    puts "#{@controller.winner} won the game!"
   end
 end

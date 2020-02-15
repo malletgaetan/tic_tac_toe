@@ -1,5 +1,6 @@
-require_relative './app/router.rb'
-require_relative './app/game_controller.rb'
+require_relative 'app/router.rb'
+require_relative 'app/controller.rb'
 
-router = Router.new(GameController.new)
+
+router = Router.new(Controller.new)
 router.run
