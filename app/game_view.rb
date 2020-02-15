@@ -1,4 +1,5 @@
 class GameView
+  #[y,x]
   def displayGame(move_list)
     puts "-" * 40
     puts " #{move_list[0][0]} | #{move_list[0][1]} | #{move_list[0][2]}"
@@ -13,6 +14,6 @@ class GameView
     x = gets.chomp.to_i
     puts "Y coordinate for your play>(0<=y<=2)"
     y = gets.chomp.to_i
-    return [x,y]
+    return [x, y]
   end
 end
